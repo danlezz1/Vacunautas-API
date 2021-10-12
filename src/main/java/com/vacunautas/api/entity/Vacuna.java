@@ -30,5 +30,13 @@ public class Vacuna {
 	@Column(name = "nombre", nullable = false, length = 100)
 	private String nombre;
 	
+	@Column(name = "dosis", nullable = false, length = 20)
+	private String dosis;
+	
+	@Column(name = "laboratorio", nullable = false, length = 50)
+	private String laboratorio = "N/A";
+	
+	@Column(name = "numero_lote", nullable = false, length = 50)
+	private String num_lote = "N/A";	
 
 }
