@@ -2,8 +2,6 @@ package com.vacunautas.api.controllers;
 
 import java.util.List;
 
-import javax.xml.transform.OutputKeys;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

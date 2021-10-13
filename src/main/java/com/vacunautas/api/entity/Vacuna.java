@@ -36,10 +36,10 @@ public class Vacuna {
 	@Column(name = "via_aplicacion", nullable = false, length = 20)
 	private String viaAplicacion;
 	
-	@Column(name = "laboratorio", nullable = false, length = 100)
-	private String laboratorio = "N/A";
+	@Column(name = "laboratorio", columnDefinition = "varchar(100) default 'N/A'", nullable = true)
+	private String laboratorio;
 	
-	@Column(name = "numero_lote", nullable = false, length = 100)
-	private String num_lote = "N/A";	
+	@Column(name = "numero_lote", columnDefinition = "varchar(100) default 'N/A'", nullable = false)
+	private String num_lote;
 
 }

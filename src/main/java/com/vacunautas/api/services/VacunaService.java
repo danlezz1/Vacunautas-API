@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.vacunautas.api.entity.Vacuna;
 import com.vacunautas.api.repository.VacunaRepository;
+import com.vacunautas.api.validators.VacunaValidator;
 
 @Service
 public class VacunaService {
@@ -30,6 +31,8 @@ public class VacunaService {
 	// Crear vacuna
 	@Transactional
 	public Vacuna create(Vacuna vacuna) {
+		VacunaValidator.comprobar(vacuna);
+		
 		Vacuna newVacuna = vacunaRepository.save(vacuna);
 		return newVacuna;
 	}
@@ -37,6 +40,8 @@ public class VacunaService {
 	// Actualizar vacuna
 	@Transactional
 	public Vacuna update(Vacuna vacuna) {
+		VacunaValidator.comprobar(vacuna);
+		
 		Vacuna existeVacuna = vacunaRepository.findById(vacuna.getId())
 				.orElseThrow(() -> new RuntimeException("La vacuna no existe..."));
 
