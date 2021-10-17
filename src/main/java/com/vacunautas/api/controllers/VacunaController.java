@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +23,14 @@ public class VacunaController {
 	@Autowired
 	private VacunaService vacunaService;
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/vacunas")
 	public ResponseEntity<List<Vacuna>> findAll() {
 		List<Vacuna> vacunas = vacunaService.findAll();
 		return new ResponseEntity<List<Vacuna>>(vacunas, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/vacunas/{id}")
 	public ResponseEntity<Vacuna> findById(@PathVariable("id") Long id) {
 		Vacuna vacuna = vacunaService.findById(id);		
@@ -35,18 +38,21 @@ public class VacunaController {
 		return new ResponseEntity<Vacuna>(vacuna, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PostMapping(value = "/vacunas")
 	public ResponseEntity<Vacuna> create(@RequestBody Vacuna vacuna) {
 		Vacuna nuevaVacuna = vacunaService.create(vacuna);
 		return new ResponseEntity<>(nuevaVacuna, HttpStatus.CREATED); 
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "/vacunas")
 	public ResponseEntity<Vacuna> update(@RequestBody Vacuna vacuna) {
 		Vacuna existeVacuna = vacunaService.update(vacuna);
 		return new ResponseEntity<Vacuna>(existeVacuna, HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "*")
 	@DeleteMapping(value = "/vacunas/{id}")
 	public ResponseEntity<String> delete(@PathVariable("id") Long id) {
 		vacunaService.delete(id);
